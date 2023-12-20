@@ -12,8 +12,7 @@
   "icon": "images/logo_crab.png",
   "activationEvents": [
     "onLanguage:rust",
-    "onCommand:rust-macro-expand.expand",
-    "onCommand:rust-macro-expand.expand-crate"
+    "onCommand:rust-macro-expand.expand"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -57,7 +56,7 @@
         "command": "rust-macro-expand.expand",
         "key": "ctrl+f1",
         "mac": "cmd+f1",
-        "when": "editorLangId == rust && resourceScheme != rustexpand"
+        "when": "editorLangId == rust"
       }
     ],
     "commands": [
@@ -70,38 +69,6 @@
           "light": "images/expand_black.png",
           "dark": "images/expand_white.png"
         }
-      },
-      {
-        "command": "rust-macro-expand.expand-crate",
-        "category": "Rust Expand Macro",
-        "title": "Expand Crate Macros",
-        "shortTitle": "rustexc",
-        "icon": {
-          "light": "images/expand_crate_black.png",
-          "dark": "images/expand_crate_white.png"
-        }
-      },
-      {
-        "command": "rust-macro-expand.expand-reload",
-        "category": "Rust Expand Macro",
-        "title": "Reload Expanded Macros",
-        "shortTitle": "rustexr",
-        "icon": {
-          "light": "images/expand_reload_black.png",
-          "dark": "images/expand_reload_white.png"
-        }
-      },
-      {
-        "command": "rust-macro-expand.expand-command",
-        "category": "Rust Expand Macro",
-        "title": "Expand Custom Command",
-        "shortTitle": "rustexcc"
-      },
-      {
-        "command": "rust-macro-expand.expand-path",
-        "category": "Rust Expand Macro",
-        "title": "Expand Custom Path",
-        "shortTitle": "rustexp"
       }
     ],
     "menus": {
@@ -109,33 +76,13 @@
         {
           "command": "rust-macro-expand.expand",
           "group": "navigation",
-          "when": "editorLangId == rust && resourceScheme != rustexpand"
-        },
-        {
-          "command": "rust-macro-expand.expand-crate",
-          "group": "navigation",
-          "when": "editorLangId == rust && resourceScheme != rustexpand"
-        },
-        {
-          "command": "rust-macro-expand.expand-reload",
-          "group": "navigation",
-          "when": "resourceScheme == rustexpand"
-        }
-      ],
-      "commandPalette": [
-        {
-          "command": "rust-macro-expand.expand-reload",
-          "when": "resourceScheme == rustexpand"
+          "when": "editorLangId == rust"
         }
       ],
       "editor/context": [
         {
           "command": "rust-macro-expand.expand",
-          "when": "editorLangId == rust && resourceScheme != rustexpand"
-        },
-        {
-          "command": "rust-macro-expand.expand-crate",
-          "when": "editorLangId == rust && resourceScheme != rustexpand"
+          "when": "editorLangId == rust"
         }
       ]
     }
@@ -152,19 +99,19 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.62.0",
     "@types/glob": "^7.1.4",
     "@types/mocha": "^9.0.0",
     "@types/node": "14.x",
+    "@types/vscode": "^1.62.0",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
     "@typescript-eslint/parser": "^5.1.0",
+    "@vscode/test-electron": "^1.6.2",
     "eslint": "^8.1.0",
     "glob": "^7.1.7",
     "mocha": "^9.1.3",
-    "typescript": "^4.4.4",
     "ts-loader": "^9.2.5",
+    "typescript": "^4.4.4",
     "webpack": "^5.52.1",
-    "webpack-cli": "^4.8.0",
-    "@vscode/test-electron": "^1.6.2"
+    "webpack-cli": "^4.10.0"
   }
 }
