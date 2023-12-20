@@ -53,7 +53,7 @@ export function getCrateName(
   const fileName = path.basename(document.fileName);
 
   const cargoContent = fs.readFileSync(path.join(crate_dir, "Cargo.toml")).toString();
-  const regex = new RegExp('(?:[package](?:(?:.|\n)*)(?:name.*=.*"(?<cargoname>.*)"))');
+  const regex = new RegExp('(?:[package](?:(?:.|\r|\n)*?)(?:name.*?=.*?"(?<cargoname>.*?)"))');
   let result = cargoContent.match(regex);
 
   if (result && result.groups && result.groups.cargoname) {
